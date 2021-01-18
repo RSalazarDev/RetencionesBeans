@@ -12,9 +12,20 @@ package clases;
 public class Retencion {
     private double salario,retencion,salarioNeto;
     
-    public Retencion(String salario){
+    
+    public Retencion(){
         
-        this.salario = Double.parseDouble(salario);
+    }
+    
+  
+ 
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+       
+        this.salario = salario;
         if (this.salario<=1000) {
             this.retencion = 0;
         }else if(this.salario<=3000){
@@ -23,17 +34,6 @@ public class Retencion {
             this.retencion = (this.salario*20)/100;
         }
         this.salarioNeto = this.salario-this.retencion;
-    }
-    
-    
-  
-    
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
     }
 
     public double getRetencion() {

@@ -13,13 +13,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%
-        Retencion r = new Retencion(request.getParameter("salario"));
-        
-        %>
+        <% Double miSalario = Double.parseDouble(request.getParameter("salario"));%>
+        <jsp:useBean id="ret" class="clases.Retencion"/>
+        <jsp:setProperty name="ret" property="salario" value="<%=miSalario%>"/>
         <h1>Nombre: <%=request.getParameter("nombre")%></h1>
-        <h2>Salario Bruto: <%= r.getSalario() %> €</h2>
-        <h2>Retencion: <%= r.getRetencion() %> €</h2>
-        <h2>Salario Neto <%= r.getSalarioNeto() %> €</h2>
+        <h2>Salario Bruto: <jsp:getProperty name="ret" property="salario"/> €</h2>
+        <h2>Retencion: <jsp:getProperty name="ret" property="retencion"/> €</h2>
+        <h2>Salario Neto <jsp:getProperty name="ret" property="salarioNeto"/> €</h2>
     </body>
 </html>
